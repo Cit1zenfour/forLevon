@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView, \
-    RetrieveAPIView, \
     CreateAPIView, \
-    DestroyAPIView, \
-    UpdateAPIView
+    RetrieveUpdateDestroyAPIView
 from .models import Product, Category, Comment
 from .serializers import \
     ProductListSerializer, \
@@ -23,7 +21,7 @@ class ProductList(ListAPIView):
     serializer_class = ProductListSerializer
 
 
-class ProductDetail(RetrieveAPIView):
+class ProductDetail(RetrieveUpdateDestroyAPIView):
     queryset = queryset_product
     serializer_class = ProductDetailSerializer
 
@@ -33,18 +31,8 @@ class ProductCreate(CreateAPIView):
     serializer_class = ProductCreateSerializer
 
 
-class ProductUpdate(UpdateAPIView):
-    queryset = queryset_product
-    serializer_class = ProductCreateSerializer
-
-
-class ProductDelete(DestroyAPIView):
-    queryset = queryset_product
-    serializer_class = ProductDetailSerializer
-
-
 # Category
-class CategoryDetail(RetrieveAPIView):
+class CategoryDetail(RetrieveUpdateDestroyAPIView):
     queryset = queryset_category
     serializer_class = CategoryDetailSerializer
 
@@ -54,22 +42,11 @@ class CategoryCreate(CreateAPIView):
     serializer_class = CategoryDetailSerializer
 
 
-class CategoryDelete(DestroyAPIView):
-    queryset = queryset_category
-    serializer_class = CategoryDetailSerializer
-
-
-class CategoryUpdate(UpdateAPIView):
-    queryset = queryset_category
-    serializer_class = CategoryDetailSerializer
-
-
 # Comments
-class CommentCreate(CreateAPIView):
+class CommentDetail(RetrieveUpdateDestroyAPIView):
     queryset = queryset_comments
-    serializer_class = CommentCreateUpdateSerializer
 
 
-class CommentUpdate(UpdateAPIView):
+class CommentCreate(CreateAPIView):
     queryset = queryset_comments
     serializer_class = CommentCreateUpdateSerializer
