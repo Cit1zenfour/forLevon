@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, \
+from shop.models import Product, \
     Category, \
     Comment
 

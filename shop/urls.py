@@ -1,5 +1,5 @@
-from django.urls import path, include
-from .views import *
+from django.urls import path
+from .api.views import *
 
 urlpatterns = [
     path('product/', ProductList.as_view()),
