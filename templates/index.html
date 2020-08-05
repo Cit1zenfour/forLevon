@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+{% for i in product_list %}
+<p>{{ i.title }}</p>
+    <p>{{ i.created_time|timesince }} назад</p>
+{% endfor %}
+</body>
+</html>
